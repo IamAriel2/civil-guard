@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Guard Shelters Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="white-square">
+        <h2>ניווט בזמן מלחמה</h2>
+        <hr>
+        <div class="origin-contents">
+            <a class="origin-label" id="use_my_location" href="#">השתמש במיקום שלי</a>
+            <p class="origin-label">כתובת מוצא</p>
+        </div>
+        <input type="text" id="origin-input" placeholder="...הקלד כתובת">
+        <p class="destination-label">כתובת יעד</p>
+        <input type="text" id="destination-input" placeholder="...הקלד כתובת">
+        <p id="slider-text">זמן הגעה למרחב המוגן: 5 דק' (400 מטר)</p>
+        <input type="range" id="time-slider" min="1" max="10" value="5">
+        <p id="safety-text">אחוז בטיחות: 50%</p>
+        <input type="range" id="safety-slider" min="0" max="100" value="50">
+        <button id="plan-route-btn">תכנון דרך בטוחה</button>
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+</html>
