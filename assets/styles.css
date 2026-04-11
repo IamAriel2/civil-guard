@@ -36,7 +36,6 @@ body, html {
     right: 10px;
         min-width: 220px;
         max-width: 350px;
-        width: auto;
         height: auto;
         min-height: 100px;
     background-color: white;
