@@ -14,7 +14,11 @@
 <body>
     <div id="map"></div>
     <div id="white-square">
-        <h2>ניווט בזמן מלחמה - חולון</h2>
+        <div id="white-square-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer;">
+            <button id="toggle-square-btn" style="background: none; border: none; font-size: 20px; cursor: pointer;">▼</button>
+            <h2 style="margin: 0; flex-grow: 1; text-align: right;">ניווט בזמן מלחמה - חולון</h2>
+        </div>
+        <div id="white-square-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         <hr>
         <div class="origin-contents">
             <a class="origin-label" id="use_my_location" href="#">השתמש במיקום שלי</a>
@@ -41,6 +45,7 @@
                 <span id="plan-route-btn-text">תכנון דרך בטוחה</span>
                 
             </button>
+        </div>
     </div>
     <script src="assets/script.js?v=1.4"></script>
 </body>
