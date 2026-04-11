@@ -129,7 +129,6 @@ function updateComplexSlider() {
         gradient = `linear-gradient(to left, 
              #007bff 0%, 
             #007bff ${currentPercent}%, 
-            #ccc ${currentPercent}%, 
             #ccc ${RED_ZONE_PERCENT}%
             #ff4d4d ${RED_ZONE_PERCENT}%, 
             #ff4d4d 100%,)`;
