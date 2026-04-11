@@ -34,8 +34,7 @@ body, html {
     position: absolute;
     top: 10px;
     right: 10px;
-        min-width: 220px;
-        max-width: 350px;
+        width: 250px;
         height: auto;
         min-height: 100px;
     background-color: white;
