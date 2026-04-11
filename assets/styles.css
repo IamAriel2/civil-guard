@@ -134,7 +134,7 @@ a.origin-label {
     font-weight: bold;
 }
 
-#time-slider {
+#time-slider, #safety-slider {
     width: 90%;
     margin-bottom: 5px;
     direction: rtl;
@@ -143,14 +143,15 @@ a.origin-label {
     height: 8px;
     border-radius: 4px;
     outline: none;
-    /* הגרדיאנט הראשוני (בטעינה). ה-JS יעדכן אותו מיד. */
-    background: linear-gradient(to left, #007bff 0%, #ff4d4d 0%, #ff4d4d 64.28%, #ccc 64.28%, #ccc 100%);
-    transition: box-shadow 0.2s; /* מעבר חלק לצל */
+    transition: box-shadow 0.2s;
 }
 
-/* אפקט הצל (Hover) על פס הסליידר */
-#time-slider:hover {
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* צל כחול עדין */
+#time-slider {
+    background: linear-gradient(to left, #007bff 0%, #ff4d4d 0%, #ff4d4d 64.28%, #ccc 64.28%, #ccc 100%);
+}
+
+#time-slider:hover, #safety-slider:hover {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
 #time-slider::-webkit-slider-thumb, #safety-slider::-webkit-slider-thumb {
