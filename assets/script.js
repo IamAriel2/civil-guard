@@ -115,19 +115,36 @@ async function fetchAddressNode(inputId, type) {
 }
 
 const timeSlider = document.getElementById('time-slider');
+const RED_ZONE_PERCENT = 64.28; // האחוז הקבוע של האזור האדום
 
-function updateSliderBackground(slider) {
-    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-    slider.style.background = `linear-gradient(to left, #007bff ${value}%, #ccc ${value}%)`;
+function updateComplexSlider() {
+    const value = parseInt(timeSlider.value);
+    const min = parseInt(timeSlider.min);
+    const max = parseInt(timeSlider.max);
+    const currentPercent = ((value - min) / (max - min)) * 100;
+
+    let gradient;
+
+    if (currentPercent < RED_ZONE_PERCENT) {
+        gradient = `linear-gradient(to left, 
+            #007bff ${currentPercent}%, 
+            #ff4d4d ${currentPercent}%, 
+            #ff4d4d ${RED_ZONE_PERCENT}%, 
+            #ccc ${RED_ZONE_PERCENT}%, 
+            #ccc 100%)`;
+    } else {
+        gradient = `linear-gradient(to left, 
+            #007bff ${RED_ZONE_PERCENT}%, 
+            #007bff ${currentPercent}%, 
+            #ccc ${currentPercent}%, 
+            #ccc 100%)`;
+    }
+
+    timeSlider.style.background = gradient;
 }
 
-timeSlider.addEventListener('input', function() {
-    updateSliderBackground(this);
-});
-
-safetySlider.addEventListener('input', function() {
-    updateSliderBackground(this);
-});
+timeSlider.addEventListener('input', updateComplexSlider);
+updateComplexSlider();
 
 updateSliderBackground(timeSlider);
 updateSliderBackground(safetySlider);

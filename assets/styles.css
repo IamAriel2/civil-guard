@@ -138,30 +138,37 @@ a.origin-label {
     width: 90%;
     margin-bottom: 5px;
     direction: rtl;
-    background: linear-gradient(to left, #007bff 0%, #007bff var(--val, 28.5%), #ccc var(--val, 28.5%), #ccc 64.28%, #ff4d4d 64.28%, #ff4d4d 100%);
     -webkit-appearance: none;
     appearance: none;
     height: 8px;
     border-radius: 4px;
+    outline: none;
+    /* הגרדיאנט הראשוני (בטעינה). ה-JS יעדכן אותו מיד. */
+    background: linear-gradient(to left, #007bff 0%, #ff4d4d 0%, #ff4d4d 64.28%, #ccc 64.28%, #ccc 100%);
+    transition: box-shadow 0.2s; /* מעבר חלק לצל */
+}
+
+/* אפקט הצל (Hover) על פס הסליידר */
+#time-slider:hover {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* צל כחול עדין */
 }
 
 #time-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 18px; 
+    height: 18px;
     border-radius: 50%;
     background: #007bff;
     cursor: pointer;
+    border: 2px solid white; /* גבול לבן */
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    transition: background 0.2s, transform 0.2s;
 }
 
-#time-slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #007bff;
-    cursor: pointer;
-    border: none;
+#time-slider::-webkit-slider-thumb:hover {
+    background: #0056b3; 
+    transform: scale(1.1); 
 }
 
 #safety-text {
