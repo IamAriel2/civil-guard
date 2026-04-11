@@ -1,6 +1,6 @@
 import osmnx as ox
 
-def get_closest_node(address, G=None, city="Holon", country="Israel", coords=False):
+def get_closest_node(address, G=None, city="Holon", country="Israel", coords=0):
     """
     Takes an address as text and finds the closest node in the graph.
     If a graph G is provided, it uses it. Otherwise, it generates one from OSM.
