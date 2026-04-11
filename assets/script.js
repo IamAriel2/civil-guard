@@ -128,9 +128,7 @@ function updateComplexSlider() {
     if (currentPercent < RED_ZONE_PERCENT) {
         gradient = `linear-gradient(to left, 
             #007bff 0%, 
-            #007bff ${currentPercent}%, 
-            #ccc ${currentPercent}%, 
-            #ccc ${RED_ZONE_START}%, 
+            #007bff ${RED_ZONE_START}%, 
             #ff4d4d ${RED_ZONE_START}%, 
             #ff4d4d 100%)`;
     } else {
