@@ -138,6 +138,31 @@ a.origin-label {
     width: 90%;
     margin-bottom: 5px;
     direction: rtl;
+    background: linear-gradient(to left, #ccc 0%, #ccc 71.4%, #ff4d4d 71.4%, #ff4d4d 100%);
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+
+#time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+}
+
+#time-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    border: none;
 }
 
 #safety-text {
