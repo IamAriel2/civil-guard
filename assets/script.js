@@ -115,7 +115,7 @@ async function fetchAddressNode(inputId, type) {
 }
 
 const timeSlider = document.getElementById('time-slider');
-const RED_ZONE_PERCENT = 64.28; // האחוז הקבוע של האזור האדום
+const RED_ZONE_PERCENT = 64.28;
 
 function updateComplexSlider() {
     const value = parseInt(timeSlider.value);
@@ -126,14 +126,14 @@ function updateComplexSlider() {
     let gradient;
 
     if (currentPercent < RED_ZONE_PERCENT) {
-        gradient = `linear-gradient(to left, 
+        gradient = `linear-gradient(to right, 
             #007bff ${currentPercent}%, 
             #ff4d4d ${currentPercent}%, 
             #ff4d4d ${RED_ZONE_PERCENT}%, 
             #ccc ${RED_ZONE_PERCENT}%, 
             #ccc 100%)`;
     } else {
-        gradient = `linear-gradient(to left, 
+        gradient = `linear-gradient(to right, 
             #007bff ${RED_ZONE_PERCENT}%, 
             #007bff ${currentPercent}%, 
             #ccc ${currentPercent}%, 
