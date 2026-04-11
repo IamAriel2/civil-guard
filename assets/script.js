@@ -4,11 +4,9 @@ window.addEventListener('DOMContentLoaded', function() {
     var planBtn = document.getElementById('plan-route-btn');
     var loader = document.getElementById('plan-route-loading');
     var btnText = document.getElementById('plan-route-btn-text');
-    if (planBtn && loader && btnText) {
-        planBtn.disabled = true;
-        loader.style.display = 'inline-block';
-        btnText.style.opacity = 0.5;
-    }
+    planBtn.disabled = true;
+    loader.style.display = 'inline-block';
+    btnText.style.opacity = 0.5;
 });
 
 // Enable plan route button and hide loader after map and shelters load
@@ -130,15 +128,17 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
     const m = document.getElementById('safety-slider').value / 100; // Assuming M is between 0 and 1
     const timeValue = document.getElementById('time-slider').value;
     const btn = document.getElementById('plan-route-btn');
+    const loader = document.getElementById('plan-route-loading');
+    const btnText = document.getElementById('plan-route-btn-text');
 
     if (!startInput || !destInput) {
-        alert('אנא הזן נקודת מוצא ויעד.');
+        alert('אנא הזן מוצא ויעד.');
         return;
     }
 
     btn.disabled = true;
-    const originalText = btn.textContent;
-    btn.textContent = '...מחשב מסלול';
+    loader.style.display = 'inline-block';
+    btnText.textContent = 'מחשב מסלול...';
 
     try {
         const startNode = await fetchAddressNode('origin-input', 'origin');
@@ -176,6 +176,7 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
         alert('שגיאה בתכנון המסלול.');
     } finally {
         btn.disabled = false;
-        btn.textContent = originalText;
+        loader.style.display = 'none';
+        btnText.textContent = 'תכנון דרך בטוחה';
     }
 });
