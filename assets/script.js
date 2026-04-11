@@ -1,4 +1,5 @@
-var map = L.map('map').setView([32.02, 34.78], 13);
+// Center on Holon with higher zoom
+var map = L.map('map').setView([32.0114, 34.7748], 15);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
