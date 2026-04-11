@@ -5,12 +5,13 @@ import mimetypes
 import json
 import calc_route
 import find_closest_node
+import osmnx
 
 BASE_DIR = Path(__file__).resolve().parent
 ASSETS_DIR = (BASE_DIR / "assets").resolve()
 DATA_DIR = (BASE_DIR / "data").resolve()
 INDEX_FILE = BASE_DIR / "pages" / "index.html"
-
+G = osmnx.graph_from_place("Holon, Israel", network_type="walk")
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -54,7 +55,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_error(400, "Missing address parameter")
                 return
                 
-            node_id = find_closest_node.get_closest_node(address)
+            node_id = find_closest_node.get_closest_node(G, address)
             
             # Return stringified node ID because osmnx might return numpy int types not natively JSON serializable
             data = json.dumps({"node_id": str(node_id) if node_id else None}).encode("utf-8")
