@@ -1,3 +1,34 @@
+
+// Disable plan route button and show loader on load
+window.addEventListener('DOMContentLoaded', function() {
+    var planBtn = document.getElementById('plan-route-btn');
+    var loader = document.getElementById('plan-route-loading');
+    var btnText = document.getElementById('plan-route-btn-text');
+    if (planBtn && loader && btnText) {
+        planBtn.disabled = true;
+        loader.style.display = 'inline-block';
+        btnText.style.opacity = 0.5;
+    }
+});
+
+// Enable plan route button and hide loader after map and shelters load
+Promise.all([
+    new Promise(resolve => {
+        if (document.readyState === 'complete') resolve();
+        else window.addEventListener('load', resolve);
+    }),
+    fetch('shelters.json')
+]).then(() => {
+    var planBtn = document.getElementById('plan-route-btn');
+    var loader = document.getElementById('plan-route-loading');
+    var btnText = document.getElementById('plan-route-btn-text');
+    if (planBtn && loader && btnText) {
+        planBtn.disabled = false;
+        loader.style.display = 'none';
+        btnText.style.opacity = 1;
+    }
+});
+
 // Center on Holon with higher zoom
 var map = L.map('map').setView([32.0114, 34.7748], 15);
 
