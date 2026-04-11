@@ -14,7 +14,7 @@
 <body>
     <div id="map"></div>
     <div id="white-square">
-        <h2>ניווט בזמן מלחמה</h2>
+        <h2>ניווט בזמן מלחמה - חולון</h2>
         <hr>
         <div class="origin-contents">
             <a class="origin-label" id="use_my_location" href="#">השתמש במיקום שלי</a>
@@ -23,6 +23,7 @@
         <input type="text" id="origin-input" placeholder="...הקלד כתובת">
         <p class="destination-label">כתובת יעד</p>
         <input type="text" id="destination-input" placeholder="...הקלד כתובת">
+        <hr>
         <div class="tooltip-container">
             <p id="slider-text">זמן הגעה למרחב המוגן: 5 דק' (400 מ')</p>
             <span class="tooltip">❓<span class="tooltiptext">הזמן המוגדר באזורכם להגעה למרחב מוגן בעת אזעקה להגדרת המרחק המירבי מהמסלול</span></span>
@@ -35,7 +36,7 @@
         <input type="range" id="safety-slider" min="0" max="100" value="50">
             <button id="plan-route-btn" disabled style="position:relative;">
                 <span id="plan-route-loading" style="display:inline-block;vertical-align:middle;margin-right:8px;">
-                                <span class="loader" style="display:inline-block;width:18px;height:18px;"></span>
+                    <span class="loader" style="display:inline-block;width:18px;height:18px;"></span>
                 </span>
                 <span id="plan-route-btn-text">תכנון דרך בטוחה</span>
                 

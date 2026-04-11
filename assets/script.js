@@ -133,7 +133,7 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
 
     btn.disabled = true;
     loader.style.display = 'inline-block';
-    btnText.textContent = 'מחשב מסלול...';
+    btnText.textContent = '...מחשב מסלול';
 
     try {
         const startNode = await fetchAddressNode('origin-input', 'origin');
