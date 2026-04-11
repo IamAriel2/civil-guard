@@ -32,7 +32,7 @@ const slider = document.getElementById('time-slider');
 const sliderText = document.getElementById('slider-text');
 
 slider.addEventListener('input', function() {
-    sliderText.textContent = 'זמן הגעה למרחב המוגן: ' + slider.value + ' דק\' (' + (slider.value * 80) + ' \'מ)';
+    sliderText.textContent = 'זמן הגעה למרחב המוגן: ' + slider.value + ' דק\' (' + (slider.value * 80) + ' מ' + "\')";
 });
 
 const safetySlider = document.getElementById('safety-slider');
