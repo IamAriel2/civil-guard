@@ -8,27 +8,6 @@ window.addEventListener('DOMContentLoaded', function() {
     btnText.style.opacity = 0.5;
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.getElementById('toggle-square-btn');
-    const header = document.getElementById('white-square-header');
-    const content = document.getElementById('white-square-content');
-
-    function toggleSquare() {
-        if (content.style.display === 'none') {
-            content.style.display = 'flex';
-            toggleBtn.textContent = '▼';
-        } else {
-            content.style.display = 'none';
-            toggleBtn.textContent = '▲';
-        }
-    }
-
-    if (toggleBtn) toggleBtn.addEventListener('click', toggleSquare);
-    if (header) header.addEventListener('click', function(e) {
-        if (e.target !== toggleBtn) toggleSquare();
-    });
-});
-
 Promise.all([
     new Promise(resolve => {
         if (document.readyState === 'complete') resolve();
