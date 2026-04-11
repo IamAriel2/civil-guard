@@ -132,7 +132,9 @@ function updateComplexSlider() {
             #007bff 100%)`;
     } else {
         gradient = `linear-gradient(to left, 
+            #ccc ${RED_ZONE_PERCENT}%, 
             #ccc ${currentPercent}%, 
+            #007bff ${currentPercent}%, 
             #007bff 100%)`;
     }
 
