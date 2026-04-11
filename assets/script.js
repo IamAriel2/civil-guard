@@ -126,18 +126,14 @@ function updateComplexSlider() {
     let gradient;
 
     if (currentPercent < RED_ZONE_PERCENT) {
-        gradient = `linear-gradient(to right, 
-            #007bff ${currentPercent}%, 
-            #ff4d4d ${currentPercent}%, 
+        gradient = `linear-gradient(to left, 
             #ff4d4d ${RED_ZONE_PERCENT}%, 
-            #ccc ${RED_ZONE_PERCENT}%, 
-            #ccc 100%)`;
-    } else {
-        gradient = `linear-gradient(to right, 
-            #007bff ${RED_ZONE_PERCENT}%, 
-            #007bff ${currentPercent}%, 
             #ccc ${currentPercent}%, 
-            #ccc 100%)`;
+            #007bff 100%)`;
+    } else {
+        gradient = `linear-gradient(to left, 
+            #ccc ${currentPercent}%, 
+            #007bff 100%)`;
     }
 
     timeSlider.style.background = gradient;
