@@ -133,10 +133,10 @@ function updateComplexSlider() {
             ;
     } else {
         gradient = `linear-gradient(to left, 
-            #ccc ${RED_ZONE_PERCENT}%, 
-            #ccc ${currentPercent}%, 
+            #007bff 0%, 
             #007bff ${currentPercent}%, 
-            #007bff 100%)`;
+            #ccc ${currentPercent}%, 
+            #ccc 100%)`;
     }
 
     timeSlider.style.background = gradient;
