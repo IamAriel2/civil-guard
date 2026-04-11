@@ -145,9 +145,6 @@ function updateComplexSlider() {
 timeSlider.addEventListener('input', updateComplexSlider);
 updateComplexSlider();
 
-updateSliderBackground(timeSlider);
-updateSliderBackground(safetySlider);
-
 document.getElementById('origin-input').addEventListener('change', () => fetchAddressNode('origin-input', 'origin'));
 document.getElementById('destination-input').addEventListener('change', () => fetchAddressNode('destination-input', 'destination'));
 
