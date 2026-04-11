@@ -143,7 +143,6 @@ a.origin-label {
     appearance: none;
     height: 8px;
     border-radius: 4px;
-    outline: none;
 }
 
 #time-slider::-webkit-slider-thumb {
