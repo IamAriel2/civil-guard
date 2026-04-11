@@ -82,6 +82,7 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/assets/"):
             requested = (ASSETS_DIR / path[len("/assets/"):]).resolve()
             try:
+                self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
                 requested.relative_to(ASSETS_DIR)
             except ValueError:
                 self.send_error(403, "Forbidden")
