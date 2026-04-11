@@ -1,0 +1,1 @@
+ssh -i "private.pem" ubuntu@51.20.192.203
