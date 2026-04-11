@@ -1,5 +1,4 @@
 
-// Disable plan route button and show loader on load
 window.addEventListener('DOMContentLoaded', function() {
     var planBtn = document.getElementById('plan-route-btn');
     var loader = document.getElementById('plan-route-loading');
@@ -9,7 +8,6 @@ window.addEventListener('DOMContentLoaded', function() {
     btnText.style.opacity = 0.5;
 });
 
-// Enable plan route button and hide loader after map and shelters load
 Promise.all([
     new Promise(resolve => {
         if (document.readyState === 'complete') resolve();
@@ -79,7 +77,6 @@ document.getElementById('use_my_location').addEventListener('click', function() 
             
             const originInput = document.getElementById('origin-input');
             originInput.value = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-            // Trigger change event to fetch and cache the location
             originInput.dispatchEvent(new Event('change'));
         }, function(error) {
             alert('לא הצלחנו לקבל את המיקום שלך. אנא בדוק הרשאות.');
@@ -99,7 +96,6 @@ async function fetchAddressNode(inputId, type) {
     
     if (!query) return null;
     
-    // Return from cache if the query hasn't changed and a node was found
     if (addressCache[type].query === query && addressCache[type].nodeId) {
         return addressCache[type].nodeId;
     }
@@ -108,7 +104,6 @@ async function fetchAddressNode(inputId, type) {
         const res = await fetch(`/address?address=${encodeURIComponent(query)}`);
         const data = await res.json();
         
-        // Cache the result
         addressCache[type].query = query;
         addressCache[type].nodeId = data.node_id || null;
         
