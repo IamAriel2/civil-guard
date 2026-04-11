@@ -87,8 +87,8 @@ document.getElementById('use_my_location').addEventListener('click', function() 
 });
 
 const addressCache = {
-    origin: { query: '', nodeId: null },
-    destination: { query: '', nodeId: null }
+    origin: { query: '', nodeId: null, coords: 'false' },
+    destination: { query: '', nodeId: null, coords: 'false' }
 };
 
 async function fetchAddressNode(inputId, type) {
@@ -113,6 +113,24 @@ async function fetchAddressNode(inputId, type) {
         return null;
     }
 }
+
+const timeSlider = document.getElementById('time-slider');
+
+function updateSliderBackground(slider) {
+    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.background = `linear-gradient(to left, #007bff ${value}%, #ccc ${value}%)`;
+}
+
+timeSlider.addEventListener('input', function() {
+    updateSliderBackground(this);
+});
+
+safetySlider.addEventListener('input', function() {
+    updateSliderBackground(this);
+});
+
+updateSliderBackground(timeSlider);
+updateSliderBackground(safetySlider);
 
 document.getElementById('origin-input').addEventListener('change', () => fetchAddressNode('origin-input', 'origin'));
 document.getElementById('destination-input').addEventListener('change', () => fetchAddressNode('destination-input', 'destination'));
