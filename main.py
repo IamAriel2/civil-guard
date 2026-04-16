@@ -29,7 +29,10 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_error(400, "Missing start or dest")
                 return
                 
-            distance, route = calc_route.find_way(start, dest, m, time)
+            score, route = calc_route.find_way(start, dest, m, time)
+            distance = 0
+            for i in range(len(route) - 1):
+                distance += G.edges[int(route[i]), int(route[i+1]), 0]['length']
             
             # Map route nodes to coordinates
             route_coords = []
