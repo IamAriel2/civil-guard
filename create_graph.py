@@ -4,7 +4,7 @@ import osmnx as ox
 
 
 
-RADIUS = 810
+RADIUS = 1210
 
 shelters_path = "data/shelters.json"
 graph_path = f"data/graphs/graph_{RADIUS - 10}.json"    
@@ -74,7 +74,7 @@ def calc_lengths(G):
     for u, v, key, data in G.edges(keys=True, data=True):
         length = data['length']
         dist_u, dist_v = G.nodes[u]['dist'], G.nodes[v]['dist']
-        if dist_u == RADIUS or dist_v == RADIUS:
+        if 0.5 * (dist_u + dist_v + length) > RADIUS:
             val = -1 # Mark as unreachable street
         else:
             val = 0.25 * (length * length + 2 * length * (dist_u + dist_v) - (dist_u - dist_v) * (dist_u - dist_v))
