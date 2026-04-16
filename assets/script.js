@@ -106,6 +106,7 @@ async function fetchAddressNode(inputId, type) {
         
         addressCache[type].query = query;
         addressCache[type].nodeId = data.node_id || null;
+        addressCache[type].coords = data.coords || null;
         
         return addressCache[type].nodeId;
     } catch (error) {
@@ -190,6 +191,13 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
         if (data.route && data.route.length > 0) {
             alert(`נמצא מסלול! מרחק: ${data.distance.toFixed(2)}`);
             
+            if (addressCache['origin'].coords) {
+                data.route.unshift(addressCache['origin'].coords);
+            }
+            if (addressCache['destination'].coords) {
+                data.route.push(addressCache['destination'].coords);
+            }
+
             if (window.currentRouteLayer) {
                 map.removeLayer(window.currentRouteLayer);
             }

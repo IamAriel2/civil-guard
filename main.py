@@ -64,10 +64,10 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_error(400, "Missing address parameter")
                 return
                 
-            node_id = find_closest_node.get_closest_node(address, G=G)
+            node_id, coords = find_closest_node.get_closest_node(address, G=G)
             
             # Return stringified node ID because osmnx might return numpy int types not natively JSON serializable
-            data = json.dumps({"node_id": str(node_id) if node_id else None}).encode("utf-8")
+            data = json.dumps({"node_id": str(node_id) if node_id else None, "coords": coords}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(data)))

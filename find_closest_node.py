@@ -23,7 +23,7 @@ def get_closest_node(address, G=None, city="Holon", country="Israel", coords=0):
             G = ox.graph_from_place(f"{city}, {country}", network_type="walk")
             
         closest_node = ox.distance.nearest_nodes(G, X=lng, Y=lat)
-        return closest_node
+        return closest_node, (lat, lng)
         
     except Exception as e:
         print(f"Error finding closest node for '{address}': {e}")
