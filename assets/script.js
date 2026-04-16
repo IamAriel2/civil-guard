@@ -186,11 +186,8 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
 
         const routeRes = await fetch(`/route?start=${encodeURIComponent(startNode)}&dest=${encodeURIComponent(destNode)}&M=${m}&time=${timeValue * 80}`);
         const data = await routeRes.json();
-        
-        console.log('Route planning result:', data);
-        if (data.route && data.route.length > 0) {
-            alert(`נמצא מסלול! מרחק: ${data.distance.toFixed(2)}`);
-            
+
+        if (data.route) {
             if (addressCache['origin'].coords) {
                 data.route.unshift(addressCache['origin'].coords);
             }
@@ -198,12 +195,13 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
                 data.route.push(addressCache['destination'].coords);
             }
 
+            alert(`נמצא מסלול! מרחק: ${data.distance.toFixed(2)}`);
+
             if (window.currentRouteLayer) {
                 map.removeLayer(window.currentRouteLayer);
             }
             window.currentRouteLayer = L.polyline(data.route, {color: 'turquoise', weight: 8, opacity: 0.7}).addTo(map);
-            map.fitBounds(window.currentRouteLayer.getBounds());
-            
+            map.fitBounds(window.currentRouteLayer.getBounds());           
         } else {
             alert('לא נמצא מסלול.');
         }
