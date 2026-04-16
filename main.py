@@ -31,8 +31,13 @@ class Handler(BaseHTTPRequestHandler):
                 
             score, route = calc_route.find_way(start, dest, m, time)
             distance = 0
-            for i in range(len(route) - 1):
-                distance += G.edges[int(route[i]), int(route[i+1]), 0]['length']
+            i = 0
+            while i < len(route) - 1:
+                try:
+                    distance += G.edges[int(route[i]), int(route[i+1]), 0]['length']
+                    i += 1
+                except KeyError:
+                    route.pop(i)
             
             # Map route nodes to coordinates
             route_coords = []
