@@ -187,7 +187,7 @@ document.getElementById('plan-route-btn').addEventListener('click', async functi
         const routeRes = await fetch(`/route?start=${encodeURIComponent(startNode)}&dest=${encodeURIComponent(destNode)}&M=${m}&time=${timeValue * 80}`);
         const data = await routeRes.json();
 
-        if (data.route) {
+        if (data.route.length > 0) {
             if (addressCache['origin'].coords) {
                 data.route.unshift(addressCache['origin'].coords);
             }
