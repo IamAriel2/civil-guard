@@ -39,7 +39,7 @@ class Handler(BaseHTTPRequestHandler):
             except Exception as e:
                 print(f"Error loading node coordinates: {e}")
 
-            print(distance)
+            print(route)
             data = json.dumps({"distance": distance, "route": route_coords}).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
