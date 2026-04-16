@@ -117,6 +117,7 @@ async function fetchAddressNode(inputId, type) {
 const timeSlider = document.getElementById('time-slider');
 const RED_ZONE_PERCENT = 64.28;
 
+/*
 function updateComplexSlider() {
     const value = parseInt(timeSlider.value);
     const min = parseInt(timeSlider.min);
@@ -144,6 +145,7 @@ function updateComplexSlider() {
 
 timeSlider.addEventListener('input', updateComplexSlider);
 updateComplexSlider();
+*/
 
 document.getElementById('origin-input').addEventListener('change', () => fetchAddressNode('origin-input', 'origin'));
 document.getElementById('destination-input').addEventListener('change', () => fetchAddressNode('destination-input', 'destination'));
